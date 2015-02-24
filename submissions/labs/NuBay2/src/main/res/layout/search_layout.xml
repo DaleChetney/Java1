@@ -1,0 +1,26 @@
+<com.example.dchetney.helloworld.ItemSearchView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_material_dark">
+    <LinearLayout
+        android:layout_width="1000px"
+        android:layout_height="100px"
+        android:orientation="horizontal"
+        android:layout_marginLeft="50px">
+        <SearchView android:id="@id/search_bar"
+            android:layout_width="900px"
+            android:layout_height="100px"/>
+        <Button android:id="@+id/to_create"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:textSize="8pt"
+            android:padding="0px"
+            android:text="+"/>
+    </LinearLayout>
+    <ListView android:id="@id/list_item"
+        android:layout_width="1080px"
+        android:layout_height="1400px"/>
+
+</com.example.dchetney.helloworld.ItemSearchView>

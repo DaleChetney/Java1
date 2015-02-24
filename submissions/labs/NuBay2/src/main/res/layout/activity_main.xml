@@ -1,0 +1,51 @@
+<com.example.dchetney.helloworld.ItemDetailView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_material_dark">
+    <TextView android:id="@id/title"
+        android:layout_width="1000px"
+        android:layout_height="200px"
+        android:layout_marginLeft="50px"
+        android:textSize="20pt"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"/>
+    <ImageView
+        android:layout_width="800px"
+        android:layout_height="600px"
+        android:layout_marginLeft="150px"
+        android:src="@drawable/toaster"/>
+    <TextView android:id="@+id/description"
+        android:layout_width="1000px"
+        android:layout_height="100px"
+        android:layout_marginLeft="50px"
+        android:gravity="center_horizontal"/>
+    <LinearLayout
+    android:layout_width="600px"
+    android:layout_height="100px"
+    android:orientation="horizontal"
+    android:layout_gravity="center">
+    <TextView android:id="@+id/current_price"
+        android:layout_width="300px"
+        android:layout_height="100px"
+        android:text="Current Price: "/>
+    <TextView android:id="@+id/price"
+        android:layout_width="300px"
+        android:layout_height="100px" />
+</LinearLayout>
+
+    <Button android:id="@+id/bid"
+        android:layout_width="300px"
+        android:layout_height="250px"
+        android:layout_marginLeft="400px"
+        android:text="Bid"/>
+
+    <TextView android:id="@+id/expires"
+        android:layout_width="800px"
+        android:layout_height="100px"
+        android:layout_marginLeft="150px"
+        android:gravity="center"/>
+
+</com.example.dchetney.helloworld.ItemDetailView>
