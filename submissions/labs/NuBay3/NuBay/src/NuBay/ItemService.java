@@ -134,6 +134,17 @@ public class ItemService {
     	};
     }
     
+    public static void clearFile(String filename) throws ItemServiceException{
+    	PrintWriter pw;
+		try {
+			pw = new PrintWriter(filename);
+	    	pw.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			throw new ItemServiceException("File not found.");
+		}
+    }
+    
     public static HashMap<Integer,ItemDetailModel> search(String query){
 
         String[] splitStrings = query.split(" ");

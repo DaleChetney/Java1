@@ -229,6 +229,12 @@ public class NuBayTest extends TestCase {
 		}
         
         assertTrue(ItemService.items.get(0).getName()=="C");
+        
+        try {
+			ItemService.clearFile("emptyFile.txt");
+		} catch (ItemServiceException e) {
+			assertEquals(e.getMessage(),"File not found.");
+		}
     }
     
     public void testDelete(){
@@ -249,6 +255,12 @@ public class NuBayTest extends TestCase {
 		}
         
         assertEquals(ItemService.items.values().size(),1);
+        
+        try {
+			ItemService.clearFile("emptyFile.txt");
+		} catch (ItemServiceException e) {
+			assertEquals(e.getMessage(),"File not found.");
+		}
     }
     
     public void testRead(){
@@ -300,5 +312,10 @@ public void testWrite(){
 		}
     	assertEquals(ItemService.items.size(),1);
     	assertEquals(ItemService.items.get(1).getName(),"C");
+    	try {
+			ItemService.clearFile("testfile.txt");
+		} catch (ItemServiceException e) {
+			assertEquals(e.getMessage(),"File not found.");
+		}
     }
 }
