@@ -241,8 +241,15 @@ public class ItemService {
     }
 
     public static ItemDetailModel bid(int id, float bidIncrease) throws ItemClientException{
+        if (bidIncrease<0) throw new ItemClientException("You can't bid negative dollars.");
         if (items.get(id).getEndDate().before(new Date())) throw new ItemClientException("That item has expired.");
+        
         items.get(id).setHighestBid(items.get(id).getHighestBid()+bidIncrease);
+        try {
+			ItemService.update(items.get(id));
+		} catch (ItemServiceException | ItemNotFoundException e) {
+			throw new ItemClientException("That item doesn't exist in the file.");
+		}
         return items.get(id);
     }
 

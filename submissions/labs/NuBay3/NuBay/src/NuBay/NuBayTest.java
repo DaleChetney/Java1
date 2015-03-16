@@ -54,9 +54,10 @@ public class NuBayTest extends TestCase {
 
     public void testBid(){
         ItemService.items.clear();
+        ItemService.localFile = "testfile.txt";
 
-        ItemService.items.put(0,new ItemDetailModel(0,"A", "", 3, new Date(), new Date(System.currentTimeMillis()+(1000*60*60*24))));
-        ItemService.items.put(1,new ItemDetailModel(1,"B", "", 3, new Date(), new Date(System.currentTimeMillis()+(1000*60*60*24))));
+        ItemService.items.put(0,new ItemDetailModel(0,"A", "descriptionA", 3, new Date(), new Date(System.currentTimeMillis()+(1000*60*60*24))));
+        ItemService.items.put(1,new ItemDetailModel(1,"B", "", 3, new Date(), new Date(System.currentTimeMillis()-(1000*60*60*24))));
 
         float currentPrice = ItemService.items.get(0).getHighestBid();
         try {
@@ -74,6 +75,12 @@ public class NuBayTest extends TestCase {
         catch (ItemClientException e){
             assertEquals(ItemService.items.get(1).getHighestBid(),currentPrice);
         }
+        
+        try {
+			ItemService.clearFile("testfile.txt");
+		} catch (ItemServiceException e) {
+			assertEquals(e.getMessage(),"File not found.");
+		}
     }
     
     public void testDateParse(){
